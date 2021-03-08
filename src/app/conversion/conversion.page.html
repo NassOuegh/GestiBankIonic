@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conversion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #addform="ngForm" (ngSubmit)="submit(addform)">
+    <div class="form-group">
+      <label for="devise">Devise  </label>
+      <input type="number" class="form-control" id="devise" ngModel name="devise" />
+    </div>
+    <div class="form-group">
+      <label for="montant">Montant  </label>
+      <input type="number" class="form-control" id="montant" ngModel name="montant" />
+    </div>
+    <div>
+      <label for="res">Resultat  </label>
+      <input type="number" class="form-control" id="res" ngModel name="res" />
+    </div>
+    <button type="submit" class="btn btn-primary">Convertir</button>
+  </form>
+</ion-content>

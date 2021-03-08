@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Creation Compte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title>CREATION INSCRIPTION</ion-title>
+  <form #addform="ngForm" (ngSubmit)="submit(addform)">
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="text" class="form-control" id="nom" ngModel name="nom" />
+    </div>
+    <div class="form-group">
+      <label for="tel">Télephone</label>
+      <input type="text" class="form-control" id="tel" ngModel name="tel" />
+    </div>
+    <div class="form-group">
+      <label for="mail">Mail</label>
+      <input type="email" class="form-control" id="mail" ngModel name="mail" />
+    </div>
+    <div class="form-group">
+      <label for="typecompte">Type de compte</label>
+      <input type="text" class="form-control" id="typecompte" ngModel name="typecompte" />
+    </div>
+    <ion-button type="submit" >Créer un compte</ion-button>
+  </form>
+</ion-content>

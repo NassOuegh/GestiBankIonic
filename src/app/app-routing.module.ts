@@ -8,8 +8,24 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'accueil',
     pathMatch: 'full'
+  },
+  {
+    path: 'accueil',
+    loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
+  },
+  {
+    path: 'connexion',
+    loadChildren: () => import('./connexion/connexion.module').then( m => m.ConnexionPageModule)
+  },
+  {
+    path: 'creation-compte',
+    loadChildren: () => import('./creation-compte/creation-compte.module').then( m => m.CreationComptePageModule)
+  },
+  {
+    path: 'conversion',
+    loadChildren: () => import('./conversion/conversion.module').then( m => m.ConversionPageModule)
   },
 ];
 

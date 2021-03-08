@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Connexion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img src="/assets/logo_small.png" style="width: 75%;"></ion-img>
+  <ion-title>AUTHENTIFICATION</ion-title>
+  <form #addform="ngForm" (ngSubmit)="submit(addform)">
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input type="text" class="form-control" id="login" ngModel name="login" />
+    </div>
+    <div class="form-group">
+      <label for="pwd">Mot de passe</label>
+      <input type="text" class="form-control" id="pwd" ngModel name="pwd" />
+    </div>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+  </form>
+</ion-content>
