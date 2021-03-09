@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class CurrencyService {
 
-  url: string = "https://api.exchangeratesapi.io/latest";
+  url: string = "https://api.exchangeratesapi.io/latest?base=";
   constructor(private http: HttpClient) { }
 
-  public getCurrencies(){
-    return this.http.get(this.url);
+  public getCurrencies(base: string){
+    return this.http.get(this.url+base);
   }
 }

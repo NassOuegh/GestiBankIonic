@@ -18,16 +18,25 @@
   <form #addform="ngForm" (ngSubmit)="submit(addform)" >
     <ion-grid>
       <ion-row style="background: white;">
-          <ion-col size="4"><ion-label for="devise" >Devise</ion-label></ion-col>
-          <ion-col size="8"><ion-input type="text" class="form-control" id="devise" ngModel name="devise"></ion-input></ion-col>
+          <ion-col size="5"><ion-select ngModel id="convertFrom" name="convertFrom" placeholder="Sélectionner">
+            <ion-select-option value="EUR">EUR</ion-select-option>
+            <ion-select-option value="USD">DOLLAR</ion-select-option>
+            <ion-select-option value="GBP">LIVRE</ion-select-option>
+          </ion-select></ion-col>
+          <ion-col size="1"><ion-icon name="arrow-forward" style="font-size: 30px;"></ion-icon></ion-col>
+          <ion-col size="5"><ion-select ngModel id="convertTo" name="convertTo" placeholder="Sélectionner">
+            <ion-select-option value="EUR">EUR</ion-select-option>
+            <ion-select-option value="USD">DOLLAR</ion-select-option>
+            <ion-select-option value="GBP">LIVRE</ion-select-option>
+          </ion-select></ion-col>
       </ion-row>
       <ion-row style="background: white;">
           <ion-col size="4"><ion-label for="montant">Montant</ion-label></ion-col>
-          <ion-col size="8"><ion-input type="text" class="form-control" id="montant" ngModel name="montant"></ion-input></ion-col>          
+          <ion-col size="8"><ion-input placeholder="Montant à convertir" type="text" class="form-control" id="montant" ngModel name="montant"></ion-input></ion-col>          
       </ion-row>
       <ion-row style="background: white;">
           <ion-col size="4"><ion-label for="res">Résultat</ion-label></ion-col>
-          <ion-col size="8">{{resultat}}</ion-col>           
+          <ion-col size="8">{{resultat}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col size="3"></ion-col>

@@ -58,12 +58,13 @@ export class ConversionPage implements OnInit {
   }
 
   public submit(addform) {
-    this.service.getCurrencies().subscribe((response) => {
+    this.service.getCurrencies(addform.value.convertFrom).subscribe((response) => {
       console.log(response);
       this.rates = <Rate>response;
       this.getCurrenciesList();
+      console.log(addform);
       for (var rn of this.ratesList){
-        if (rn.name==addform.value.devise){
+        if (rn.name==addform.value.convertTo){
           this.taux = rn.rates;
           this.resultat=this.taux*addform.value.montant;
         }
