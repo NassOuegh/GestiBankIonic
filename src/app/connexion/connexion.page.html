@@ -5,17 +5,45 @@
 </ion-header>
 
 <ion-content>
-  <ion-img src="/assets/logo_small.png" style="width: 75%;"></ion-img>
-  <ion-title>AUTHENTIFICATION</ion-title>
+  <p></p>
+  <p>
+    <ion-img
+    src="/assets/logo_small.png"
+    style="width: 75%; margin-left: auto; margin-right: auto"
+  ></ion-img>
+  </p>
+  <p><ion-title style="text-align: center; color: white; background: red"
+    >AUTHENTIFICATION</ion-title
+  ></p>
   <form #addform="ngForm" (ngSubmit)="submit(addform)">
-    <div class="form-group">
-      <label for="login">Login</label>
-      <input type="text" class="form-control" id="login" ngModel name="login" />
-    </div>
-    <div class="form-group">
-      <label for="pwd">Mot de passe</label>
-      <input type="text" class="form-control" id="pwd" ngModel name="pwd" />
-    </div>
-    <button type="submit" class="btn btn-primary">Se connecter</button>
+    <ion-grid>
+      <ion-row class="form-group" style="background: whitesmoke">
+        <ion-col size="4"> <ion-label for="login">Login </ion-label></ion-col>
+        <ion-col size="8"
+          ><ion-input
+            type="text"
+            class="form-control"
+            id="login"
+            ngModel
+            name="login"
+          ></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row class="form-group" style="background: whitesmoke">
+        <ion-col size="4">
+        <ion-label for="pwd">Mot de passe</ion-label></ion-col>
+        <ion-col size="8"><ion-input
+          type="text"
+          class="form-control"
+          id="pwd"
+          ngModel
+          name="pwd"
+        ></ion-input></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="4"><ion-button type="submit" style>Se connecter</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>

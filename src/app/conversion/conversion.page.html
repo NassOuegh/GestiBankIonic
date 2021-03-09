@@ -5,19 +5,32 @@
 </ion-header>
 
 <ion-content>
-  <form #addform="ngForm" (ngSubmit)="submit(addform)">
-    <div class="form-group">
-      <label for="devise">Devise  </label>
-      <input type="number" class="form-control" id="devise" ngModel name="devise" />
-    </div>
-    <div class="form-group">
-      <label for="montant">Montant  </label>
-      <input type="number" class="form-control" id="montant" ngModel name="montant" />
-    </div>
-    <div>
-      <label for="res">Resultat  </label>
-      <input type="number" class="form-control" id="res" ngModel name="res" />
-    </div>
-    <button type="submit" class="btn btn-primary">Convertir</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-title style="text-align: center; color: white; background: red;">CONVERSION</ion-title>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <form #addform="ngForm" (ngSubmit)="submit(addform)" >
+    <ion-grid>
+      <ion-row style="background: white;">
+          <ion-col size="4"><ion-label for="devise" >Devise</ion-label></ion-col>
+          <ion-col size="8"><ion-input type="text" class="form-control" id="devise" ngModel name="devise"></ion-input></ion-col>
+      </ion-row>
+      <ion-row style="background: white;">
+          <ion-col size="4"><ion-label for="montant">Montant</ion-label></ion-col>
+          <ion-col size="8"><ion-input type="text" class="form-control" id="montant" ngModel name="montant"></ion-input></ion-col>          
+      </ion-row>
+      <ion-row style="background: white;">
+          <ion-col size="4"><ion-label for="res">Résultat</ion-label></ion-col>
+          <ion-col size="8">{{resultat}}</ion-col>           
+      </ion-row>
+      <ion-row>
+        <ion-col size="3"></ion-col>
+        <ion-col size="4"><ion-button type="submit">Convertir</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>
