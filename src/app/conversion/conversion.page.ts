@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Rate, RateName } from '../entities/models';
+import { pickerController } from '@ionic/core/dist/ionic/index.esm.js';
 import { CurrencyService } from '../services/currency.service';
 
 @Component({
@@ -64,7 +65,6 @@ export class ConversionPage implements OnInit {
       for (var rn of this.ratesList){
         if (rn.name==addform.value.devise){
           this.taux = rn.rates;
-          alert("Sa reum ! Le taux est "+this.taux);
           this.resultat=this.taux*addform.value.montant;
         }
       };

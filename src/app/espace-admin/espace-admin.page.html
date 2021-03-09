@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Espace Admin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-title style="text-align: center; color: white; background: #eb2922">ESPACE ADMINISTRATEUR</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button style="width: 100%;" [routerLink]="['/liste-agents']">Liste des agents</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button style="width: 100%;" [routerLink]="['/ajout-agents']">Ajouter des agents</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button style="width: 100%;" [routerLink]="['/liste-demandes']">Consulter les demandes</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

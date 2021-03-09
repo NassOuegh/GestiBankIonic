@@ -8,6 +8,22 @@ export interface Client{
     type: string
 }
 
+export interface Agent{
+    tel: string,
+    name: string,
+    mail: string,
+    password: string,
+    matricule: string,
+    role: string
+}
+
+export interface User{
+    mail: string,
+    name: string,
+    password: string,
+    role: string
+}
+
 export interface Rate{
     date: string,
     base: string,

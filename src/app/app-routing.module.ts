@@ -27,6 +27,26 @@ const routes: Routes = [
     path: 'conversion',
     loadChildren: () => import('./conversion/conversion.module').then( m => m.ConversionPageModule)
   },
+  {
+    path: 'espace-admin',
+    loadChildren: () => import('./espace-admin/espace-admin.module').then( m => m.EspaceAdminPageModule)
+  },
+  {
+    path: 'espace-client',
+    loadChildren: () => import('./espace-client/espace-client.module').then( m => m.EspaceClientPageModule)
+  },
+  {
+    path: 'liste-agents',
+    loadChildren: () => import('./liste-agents/liste-agents.module').then( m => m.ListeAgentsPageModule)
+  },
+  {
+    path: 'liste-demandes',
+    loadChildren: () => import('./liste-demandes/liste-demandes.module').then( m => m.ListeDemandesPageModule)
+  },
+  {
+    path: 'ajout-agents',
+    loadChildren: () => import('./ajout-agents/ajout-agents.module').then( m => m.AjoutAgentsPageModule)
+  },
 ];
 
 @NgModule({
