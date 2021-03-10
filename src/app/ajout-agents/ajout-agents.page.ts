@@ -28,6 +28,7 @@ export class AjoutAgentsPage implements OnInit {
       password: this.makeid(12),
       matricule: addform.value.numMatr,
       role: 'AGENT',
+      clients: []
     };
     this.service.postAgents(this.agent).subscribe((response) => {
       this.agentAlert();

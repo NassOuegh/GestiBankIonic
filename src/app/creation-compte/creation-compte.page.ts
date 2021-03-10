@@ -26,7 +26,8 @@ export class CreationComptePage implements OnInit {
       type: addform.value.typecompte,
       status: "EN ATTENTE",
       role: "CLIENT",
-      password:"1234"
+      password:"1234",
+      agent: "AUCUN"
     };
     this.service.postClient(this.client).subscribe((response) => {
       alert("Ajout avec succès du client!");

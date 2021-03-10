@@ -5,7 +5,8 @@ export interface Client{
     name: string,
     password: string,
     role: string,
-    type: string
+    type: string,
+    agent: string
 }
 
 export interface Agent{
@@ -14,7 +15,8 @@ export interface Agent{
     mail: string,
     password: string,
     matricule: string,
-    role: string
+    role: string,
+    clients: string[]
 }
 
 export interface User{

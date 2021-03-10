@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Rate, RateName } from '../entities/models';
-import { pickerController } from '@ionic/core/dist/ionic/index.esm.js';
 import { CurrencyService } from '../services/currency.service';
 
 @Component({
@@ -13,6 +12,40 @@ export class ConversionPage implements OnInit {
   taux: number;
   resultat: number;
   ratesList: Array<RateName>=[];
+  baseList: string[]=[
+    "CAD",
+    "HKD",
+    "ISK",
+    "PHP",
+    "DKK",
+    "HUF",
+    "CZK",
+    "AUD",
+    "RON",
+    "SEK",
+    "IDR",
+    "INR",
+    "BRL",
+    "RUB",
+    "HRK",
+    "JPY",
+    "THB",
+    "CHF",
+    "SGD",
+    "PLN",
+    "BGN",
+    "TRY",
+    "CNY",
+    "NOK",
+    "NZD",
+    "ZAR",
+    "USD",
+    "MXN",
+    "ILS",
+    "GBP",
+    "KRW",
+    "MYR"
+  ]
 
   constructor(private service: CurrencyService) {}
 

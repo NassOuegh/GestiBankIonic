@@ -18,5 +18,9 @@ export class ListeAgentsPage implements OnInit {
     this.service.getAgents().subscribe(response=>this.agents=(<Agent[]>response));
   }
 
-
-}
+  public delete(mail: string){
+    this.service.deleteAgent(mail).subscribe(()=>{
+    console.log(mail);}
+    );
+  }
+} 

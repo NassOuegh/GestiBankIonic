@@ -20,7 +20,20 @@ export class ClientsService {
     return this.http.get(this.url+"/list/"+mail);
   }
 
+  public getClientsEnAttente(){
+    return this.http.get(this.url+"/list/attente");
+  }
+
   public postClient(client: Client){
     return this.http.post(this.url+"/add", client);
+  }
+
+  public putClient(mail: string, client: Client){
+    return this.http.put(this.url+"/"+mail, client);
+  }
+
+  public deleteClient(mail: string){
+    console.log(this.url+"/"+mail);
+    return this.http.delete(this.url+"/"+mail);
   }
 }

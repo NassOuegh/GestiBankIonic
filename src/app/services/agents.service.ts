@@ -24,4 +24,8 @@ export class AgentsService {
   public postAgents(agents: Agent){
     return this.http.post(this.url+"/add", agents);
   }
+
+  public deleteAgent(mail: string){
+    return this.http.delete(this.url+"/"+mail);
+  }
 }

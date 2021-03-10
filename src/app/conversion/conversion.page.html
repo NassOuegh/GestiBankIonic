@@ -19,15 +19,11 @@
     <ion-grid>
       <ion-row style="background: white;">
           <ion-col size="5"><ion-select ngModel id="convertFrom" name="convertFrom" placeholder="Sélectionner">
-            <ion-select-option value="EUR">EUR</ion-select-option>
-            <ion-select-option value="USD">DOLLAR</ion-select-option>
-            <ion-select-option value="GBP">LIVRE</ion-select-option>
+            <ion-select-option *ngFor="let devise of baseList" value={{devise}}>{{devise}}</ion-select-option>
           </ion-select></ion-col>
           <ion-col size="1"><ion-icon name="arrow-forward" style="font-size: 30px;"></ion-icon></ion-col>
-          <ion-col size="5"><ion-select ngModel id="convertTo" name="convertTo" placeholder="Sélectionner">
-            <ion-select-option value="EUR">EUR</ion-select-option>
-            <ion-select-option value="USD">DOLLAR</ion-select-option>
-            <ion-select-option value="GBP">LIVRE</ion-select-option>
+          <ion-col size="5"><ion-select ngModel id="convertTo" name="convertTo" placeholder="Sélectionner" >
+            <ion-select-option *ngFor="let devise of baseList" value={{devise}}>{{devise}}</ion-select-option>
           </ion-select></ion-col>
       </ion-row>
       <ion-row style="background: white;">

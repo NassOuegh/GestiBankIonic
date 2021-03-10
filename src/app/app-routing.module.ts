@@ -47,6 +47,10 @@ const routes: Routes = [
     path: 'ajout-agents',
     loadChildren: () => import('./ajout-agents/ajout-agents.module').then( m => m.AjoutAgentsPageModule)
   },
+  {
+    path: 'liste-clients',
+    loadChildren: () => import('./liste-clients/liste-clients.module').then( m => m.ListeClientsPageModule)
+  },
 ];
 
 @NgModule({

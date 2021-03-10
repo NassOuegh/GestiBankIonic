@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from '../entities/models';
+import { IonRefresher } from '@ionic/angular';
+import { Agent, Client } from '../entities/models';
+import { AgentsService } from '../services/agents.service';
 import { ClientsService } from '../services/clients.service';
 
 @Component({
@@ -10,17 +12,28 @@ import { ClientsService } from '../services/clients.service';
 export class ListeDemandesPage implements OnInit {
   clients: Client[] = [];
   body: Client[] = [];
+  agents: Agent[]=[];
 
-  constructor(private service: ClientsService) {}
+  constructor(private service: ClientsService, private serviceagents: AgentsService) {}
 
   ngOnInit() {
+    this.refresh();
+  }
+  
+  public affectAgent(client: Client, mailagent: string){
+    client.agent=mailagent;
+    this.service.putClient(client.mail, client).subscribe(()=>{
+      console.log("GG BATEEERE"+client);
+      this.refresh();
+    })
+  }
+
+  public refresh() {
     this.service.getClients().subscribe((response) => {
-      this.body = <Client[]>response;
-      for (var cl of this.body) {
-        if (cl.status == 'EN ATTENTE') {
-          this.clients.push(cl);
-        }
-      }
+      this.clients = <Client[]>response;
+    });
+    this.serviceagents.getAgents().subscribe((response) => {
+      this.agents = <Agent[]>response;
     });
   }
 }

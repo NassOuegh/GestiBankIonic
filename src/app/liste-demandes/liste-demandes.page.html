@@ -11,15 +11,21 @@
         <ion-col size="3">
           <ion-img src="/assets/user.png"></ion-img>
         </ion-col>
-        <ion-col size="5">
+        <ion-col size="6">
           <ion-row>{{client.name}}</ion-row>
           <ion-row>Tél: {{client.tel}}</ion-row>
           <ion-row>{{client.mail}}</ion-row>
           <ion-row>Type: {{client.type}}</ion-row>
           <ion-row style="color: brown"><b>{{client.status}}</b></ion-row>
         </ion-col>
-        <ion-col size="3"><ion-button>Valider</ion-button></ion-col>
+        <ion-col size="3">
+        <ion-row><ion-button (click)="affectAgent(client,affectAgent.value)"><ion-icon name="create"></ion-icon></ion-button></ion-row>
+        <ion-row><ion-select ngModel id="affectAgent" name="affectAgent" placeholder="Sélectionner" >
+          <ion-select-option *ngFor="let agent of agents" value={{aggitent.mail}}>{{agent.name}}</ion-select-option>
+        </ion-select></ion-row>
+      </ion-col>
       </ion-row>
+      <ion-row>Agent affecté: {{client.agent}}</ion-row>
     </ion-grid>
   </ion-card>
 </ion-content>
