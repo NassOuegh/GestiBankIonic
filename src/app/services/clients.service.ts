@@ -7,7 +7,7 @@ import { Client } from '../entities/models';
 })
 export class ClientsService {
 
-  url: string="http://192.168.1.50:81/clients";
+  url: string="http://192.168.1.54:81/clients";
 
   constructor(private http: HttpClient) { }
 
