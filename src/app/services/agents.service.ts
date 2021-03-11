@@ -17,12 +17,17 @@ export class AgentsService {
   }
 
   public getAgentsByMail(mail: string){
-    console.log(this.url+"/list/" + mail);
-    return this.http.get(this.url+"/list/"+mail);
+    console.log(this.url+"/" + mail);
+    return this.http.get(this.url+"/"+mail);
   }
 
   public postAgents(agents: Agent){
     return this.http.post(this.url+"/add", agents);
+  }
+
+  public putAgent(mail: string, agent: Agent){
+    console.log(1);
+    return this.http.put(this.url+"/"+mail, agent);
   }
 
   public deleteAgent(mail: string){

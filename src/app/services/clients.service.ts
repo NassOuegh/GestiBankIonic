@@ -30,7 +30,6 @@ export class ClientsService {
   }
 
   public putClient(mail: string, client: Client){
-    console.log("1");
     return this.http.put(this.url+"/"+mail, client);
   }
 

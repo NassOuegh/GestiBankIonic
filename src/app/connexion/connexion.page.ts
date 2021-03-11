@@ -34,6 +34,18 @@ export class ConnexionPage implements OnInit {
     await alert.present();
   }
 
+  async AgentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Bienvenue',
+      message:
+        'Bonjour ' + this.user.name + '. Bienvenue sur votre espace Agent.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
   async adminAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -73,6 +85,11 @@ export class ConnexionPage implements OnInit {
             }
             case 'ADMIN': {
               this.router.navigate(['/espace-admin']);
+              this.adminAlert();
+              break;
+            }
+            case 'AGENT': {
+              this.router.navigate(['/espace-agents']);
               this.adminAlert();
               break;
             }

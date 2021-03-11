@@ -4,13 +4,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-<ion-img src="/assets/logo_white_large.png" ></ion-img>
+<ion-content ><p></p>
+<ion-img src="/assets/logo_white_large.png" style="width: 75%; margin-left: auto; margin-right: auto"></ion-img>
+<p style="margin-top: 20%;"></p>
+<ion-grid>
+  <ion-row>
+    <ion-col size="2"></ion-col>
+    <ion-col size="8">
+      <ion-row><ion-button [routerLink]="['../connexion']" style="width: 100%;">Connexion</ion-button></ion-row>
 
-  <p><ion-button [routerLink]="['../connexion']">Connexion</ion-button></p>
-
-  <p><ion-button [routerLink]="['../creation-compte']">Créer un compte</ion-button></p>
-
-  <p><ion-button [routerLink]="['../conversion']" >Conversion</ion-button></p>
+      <ion-row><ion-button [routerLink]="['../creation-compte']" style="width: 100%;">Créer un compte</ion-button></ion-row>
+    
+      <ion-row><ion-button [routerLink]="['../conversion']" style="width: 100%;">Conversion</ion-button></ion-row>
+    </ion-col>
+    <ion-col size="2"></ion-col>
+  </ion-row>
+</ion-grid>
 
 </ion-content>
