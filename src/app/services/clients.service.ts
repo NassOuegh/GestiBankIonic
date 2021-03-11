@@ -7,11 +7,12 @@ import { Client } from '../entities/models';
 })
 export class ClientsService {
 
-  url: string="http://192.168.1.54:81/clients";
+  url: string="http://localhost:81/clients";
 
   constructor(private http: HttpClient) { }
 
   public getClients(){
+    console.log("BJR");
     return this.http.get(this.url+"/list");
   }
 
@@ -29,6 +30,7 @@ export class ClientsService {
   }
 
   public putClient(mail: string, client: Client){
+    console.log("1");
     return this.http.put(this.url+"/"+mail, client);
   }
 

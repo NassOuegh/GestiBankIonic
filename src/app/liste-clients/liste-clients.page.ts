@@ -28,6 +28,7 @@ export class ListeClientsPage implements OnInit {
   public refresh() {
     this.service.getClients().subscribe((response) => {
       this.clients = <Client[]>response;
+      console.log(this.clients);
     });
   }
 }

@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'liste-clients',
     loadChildren: () => import('./liste-clients/liste-clients.module').then( m => m.ListeClientsPageModule)
   },
+  {
+    path: 'espace-agents',
+    loadChildren: () => import('./espace-agents/espace-agents.module').then( m => m.EspaceAgentsPageModule)
+  },
 ];
 
 @NgModule({

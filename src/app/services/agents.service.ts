@@ -8,7 +8,7 @@ import { Agent } from '../entities/models';
 export class AgentsService {
 
 
-  url: string="http://192.168.1.54:81/agents";
+  url: string="http://localhost:81/agents";
 
   constructor(private http: HttpClient) { }
 
