@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { User } from '../entities/models';
+import { Client, User } from '../entities/models';
+import { DataResolverService } from '../resolver/data-resolver.service';
+import { ClientsService } from '../services/clients.service';
+import { DataService } from '../services/data.service';
 import { UsersService } from '../services/users.service';
 
 @Component({
@@ -14,11 +17,15 @@ export class ConnexionPage implements OnInit {
   password: string;
   user: User;
   users: User[];
+  client: Client;
+  valide: boolean=false;
 
   constructor(
     private service: UsersService,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private dataService: DataService,
+    private serviceClient: ClientsService
   ) {}
 
   ngOnInit() {}
@@ -34,7 +41,7 @@ export class ConnexionPage implements OnInit {
     await alert.present();
   }
 
-  async AgentAlert() {
+  async agentAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Bienvenue',
@@ -69,6 +76,17 @@ export class ConnexionPage implements OnInit {
     await alert.present();
   }
 
+  async attenteAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Erreur',
+      message: 'Votre compte est en attente de validation par un agent.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
   public submit(addform) {
     this.mail = addform.value.login;
     this.password = addform.value.pwd;
@@ -79,8 +97,9 @@ export class ConnexionPage implements OnInit {
         if (this.password == this.user.password) {
           switch (this.user.role) {
             case 'CLIENT': {
-              this.router.navigate(['/espace-client']);
-              this.clientAlert();
+              this.estValide();
+              console.log("ok2");
+
               break;
             }
             case 'ADMIN': {
@@ -89,8 +108,8 @@ export class ConnexionPage implements OnInit {
               break;
             }
             case 'AGENT': {
-              this.router.navigate(['/espace-agents']);
-              this.adminAlert();
+              this.openEspaceAgent();
+              this.agentAlert();
               break;
             }
           }
@@ -101,5 +120,27 @@ export class ConnexionPage implements OnInit {
         this.wrongPwdAlert();
       }
     });
+  }
+
+  public openEspaceAgent() {
+    this.dataService.setData(this.user.mail, this.user);
+    this.router.navigate(['/espace-agents/' + this.user.mail]);
+  }
+
+  public estValide() {
+    this.serviceClient.getClientsByMail(this.mail).subscribe((response) => {
+      this.client = <Client>response;
+      console.log(this.client.status);
+      console.log(response);
+      if (this.client.status == "VALIDE"){ console.log("OK"); this.valide= true;}
+      else {this.valide=  false;}
+      if (this.valide==false) {
+        this.router.navigate(['/espace-client']);
+        this.clientAlert();
+      } else {
+        this.attenteAlert();
+      }
+    });
+
   }
 }

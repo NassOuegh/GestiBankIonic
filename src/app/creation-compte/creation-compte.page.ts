@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Client } from '../entities/models';
 import { ClientsService } from '../services/clients.service';
 
@@ -12,7 +13,7 @@ export class CreationComptePage implements OnInit {
 
   client: Client;
   clients: Client[];
-  constructor(private service: ClientsService, private router: Router) { }
+  constructor(private service: ClientsService, private router: Router, private toastController: ToastController) { }
 
   ngOnInit() {
     this.refresh();
@@ -30,7 +31,7 @@ export class CreationComptePage implements OnInit {
       agent: "AUCUN"
     };
     this.service.postClient(this.client).subscribe((response) => {
-      alert("Ajout avec succès du client!");
+      this.presentToast();
       this.router.navigate(['/connexion']);
     });
   }
@@ -41,5 +42,13 @@ export class CreationComptePage implements OnInit {
         this.clients = (<Client[]>response);
        }
       );
+    }
+
+    async presentToast() {
+      const toast = await this.toastController.create({
+        message: 'Votre compte a été créé. En attente de validation par un agent.',
+        duration: 2000
+      });
+      toast.present();
     }
 }

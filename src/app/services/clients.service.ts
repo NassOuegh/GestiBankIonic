@@ -12,7 +12,6 @@ export class ClientsService {
   constructor(private http: HttpClient) { }
 
   public getClients(){
-    console.log("BJR");
     return this.http.get(this.url+"/list");
   }
 
@@ -23,6 +22,10 @@ export class ClientsService {
 
   public getClientsEnAttente(){
     return this.http.get(this.url+"/list/attente");
+  }
+
+  public getClientsValide(){
+    return this.http.get(this.url+"/list/valide");
   }
 
   public postClient(client: Client){
