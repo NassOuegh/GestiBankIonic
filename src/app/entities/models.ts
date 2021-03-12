@@ -69,5 +69,6 @@ export interface RatesBean{
     ILS: number,
     GBP: number,
     KRW: number,
-    MYR: number
+    MYR: number,
+    EUR: number
 }

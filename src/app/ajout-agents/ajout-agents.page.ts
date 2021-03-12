@@ -49,8 +49,8 @@ export class AjoutAgentsPage implements OnInit {
   async agentAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Erreur',
-      message: 'Mauvais identifiant ou mot de passe.',
+      header: 'Succes',
+      message: 'Agent ajouté avec succès.',
       buttons: ['OK'],
     });
 

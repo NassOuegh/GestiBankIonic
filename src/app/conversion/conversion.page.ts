@@ -44,7 +44,8 @@ export class ConversionPage implements OnInit {
     "ILS",
     "GBP",
     "KRW",
-    "MYR"
+    "MYR",
+    "EUR"
   ]
 
   constructor(private service: CurrencyService) {}
@@ -86,7 +87,8 @@ export class ConversionPage implements OnInit {
     {name: "ILS", rates: this.rates.rates.ILS},
     {name: "GBP", rates: this.rates.rates.GBP},
     {name: "KRW", rates: this.rates.rates.KRW},
-    {name: "MYR", rates: this.rates.rates.MYR}
+    {name: "MYR", rates: this.rates.rates.MYR},
+    {name: "EUR", rates: this.rates.rates.EUR}
     ); 
   }
 

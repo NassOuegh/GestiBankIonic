@@ -27,7 +27,7 @@ export class CreationComptePage implements OnInit {
       type: addform.value.typecompte,
       status: "EN ATTENTE",
       role: "CLIENT",
-      password:"1234",
+      password: this.makeid(12),
       agent: "AUCUN"
     };
     this.service.postClient(this.client).subscribe((response) => {
@@ -42,6 +42,17 @@ export class CreationComptePage implements OnInit {
         this.clients = (<Client[]>response);
        }
       );
+    }
+
+    public makeid(length) {
+      var result = '';
+      var characters =
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
     }
 
     async presentToast() {
